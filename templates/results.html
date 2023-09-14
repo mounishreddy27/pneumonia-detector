@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Results</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/result.css' %}">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-title">
+            <a href="{% url 'home' %}">PNEUMONIA DETECTOR</a>
+        </div>
+        <div class="navbar-logout">
+            <a href="{% url 'logout' %}">Logout</a>
+        </div>
+    </nav>
+    <div class="container">
+        <h1>Results</h1>
+        <div class="result-container">
+            <div class="image-preview">
+            <img src="{{ uploaded_image }}" alt="Uploaded Image" class="uploaded-image">
+            </div>
+            <!-- <p>Uploaded Image Variable: {{ uploaded_image }}</p>
+            <p>Image URL: {{ uploaded_image.image.url }}</p> -->
+            <h2><p class="result-text">{{ result }}</p></h2>
+        </div>
+    </div>
+</body>
+</html>

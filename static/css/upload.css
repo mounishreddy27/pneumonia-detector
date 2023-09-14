@@ -1,0 +1,136 @@
+/* upload.css */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.upload-form {
+    text-align: center;
+}
+
+.custom-file-upload {
+    display: inline-block;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.custom-file-upload:hover {
+    background-color: #0056b3;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.upload-button {
+    display: block;
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+}
+
+.upload-button:hover {
+    background-color: #45a049;
+}
+/* Style the navigation bar */
+.navbar {
+    background-color: #333; /* Dark background color */
+    color: #fff; /* Text color */
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-title a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    font-size: 18px; /* Adjust font size as needed */
+}
+
+.navbar-logout a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    padding: 5px 10px;
+    background-color: #555; /* Button background color */
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.navbar-logout a:hover {
+    background-color: #777; /* Button background color on hover */
+}
+/* Style for the file input container */
+.file-input {
+    margin-bottom: 20px;
+}
+
+.file-input label.select-image-button {
+    background-color: #007BFF; /* Button background color */
+    color: #fff; /* Button text color */
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.file-input label.select-image-button:hover {
+    background-color: #0056b3; /* Button background color on hover */
+}
+
+#selectedFileName {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+/* Style for the image preview container */
+.image-preview {
+    margin-top: 20px;
+}
+
+#imagePreview {
+    max-width: 100%; /* Ensure the image fits within its container */
+    display: none; /* Initially hidden */
+}
+.image-container {
+    max-width: 100%; /* Set the maximum width to ensure responsiveness */
+    max-height: 300px; /* Set the maximum height to keep the container fixed */
+    margin: 0 auto; /* Center the container horizontally */
+    overflow: hidden; /* Hide any overflow from the image */
+}
+
+.image-container img {
+    width: 100%; /* Make the image width 100% of the container */
+    height: auto; /* Allow the image to adjust its height proportionally */
+    display: block; /* Remove any extra spacing below the image */
+}

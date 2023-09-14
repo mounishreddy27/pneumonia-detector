@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/upload.css' %}">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-title">
+            <a href="{% url 'home' %}">PNEUMONIA DETECTOR</a>
+        </div>
+        <div class="navbar-logout">
+            <a href="{% url 'logout' %}">Logout</a>
+        </div>
+    </nav>
+    <div class="container">
+        <h1>Upload an X-ray Image</h1>
+        <div class="upload-form">
+            <form method="post" enctype="multipart/form-data" action="{% url 'upload_image' %}">
+                {% csrf_token %}
+                <div class="image-preview">
+                    <img id="imagePreview" src="#" alt="Image Preview" style="display: none;">
+                </div>
+                <div class="file-input">
+                    <input type="file" name="image" id="imageInput" accept="image/*" style="display: none;">
+                    <input type="hidden" name="image_path" id="imagePathInput" value="">
+                    
+                    <span id="selectedFileName">No file selected</span>
+                    <label for="imageInput" class="select-image-button">Select Image</label>
+                    <button type="submit" class="upload-button">Upload</button>
+                </div>
+                
+            </form>
+            
+        </div>
+    </div>
+    <script>
+        // JavaScript to display the selected file name and preview the image
+        document.getElementById('imageInput').addEventListener('change', function() {
+            const selectedFileName = document.getElementById('selectedFileName');
+            const imagePreview = document.getElementById('imagePreview');
+            const imagePathInput = document.getElementById('imagePathInput');
+            if (this.files.length > 0) {
+                selectedFileName.textContent = this.files[0].name;
+                imagePathInput.value = '/path/to/save/image'; // Set the image path here
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    imagePreview.src = e.target.result;
+                    imagePreview.style.display = 'block';
+                };
+                reader.readAsDataURL(this.files[0]);
+            } else {
+                selectedFileName.textContent = 'No file selected';
+                imagePreview.style.display = 'none';
+                imagePathInput.value = ''; // Clear the image path
+            }
+        });
+        
+    </script>
+</body>
+</html>
